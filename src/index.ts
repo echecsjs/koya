@@ -1,4 +1,9 @@
-import { BYE_SENTINEL, gamesForPlayer, opponentIds, score } from './utilities.js';
+import {
+  BYE_SENTINEL,
+  gamesForPlayer,
+  opponentIds,
+  score,
+} from './utilities.js';
 
 import type { Game } from './types.js';
 
