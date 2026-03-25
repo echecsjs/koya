@@ -1,4 +1,4 @@
-import { BYE_SENTINEL, gamesForPlayer, opponents, score } from './utilities.js';
+import { gamesForPlayer, opponents, score } from './utilities.js';
 
 import type { Game } from './types.js';
 
@@ -9,10 +9,7 @@ function koya(player: string, games: Game[][]): number {
     const oppScore = score(opp, games);
     if (oppScore >= threshold) {
       const gamesBetween = gamesForPlayer(player, games).filter(
-        (g) =>
-          g.black !== BYE_SENTINEL &&
-          g.white !== BYE_SENTINEL &&
-          (g.white === opp || g.black === opp),
+        (g) => g.black !== g.white && (g.white === opp || g.black === opp),
       );
       for (const g of gamesBetween) {
         sum += g.white === player ? g.result : 1 - g.result;
