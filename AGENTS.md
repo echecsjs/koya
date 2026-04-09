@@ -6,6 +6,9 @@ Tiebreak Regulations (section 9.2).
 
 See the root `AGENTS.md` for workspace-wide conventions.
 
+**Backlog:** tracked in
+[GitHub Issues](https://github.com/mormubis/koya/issues).
+
 ---
 
 ## Project Overview
