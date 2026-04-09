@@ -18,8 +18,8 @@ npm install @echecs/koya
 ## Quick Start
 
 ```typescript
-import { koya } from '@echecs/koya';
-import type { Game, GameKind } from '@echecs/koya';
+import { koya, tiebreak } from '@echecs/koya';
+import type { Game, GameKind, Player, Result } from '@echecs/koya';
 
 // games[n] = round n+1; Game has no `round` field
 const games: Game[][] = [
@@ -36,9 +36,9 @@ const score = koya('A', games);
 
 ## API
 
-### `koya(playerId, games, players?)`
+### `koya(player, games)`
 
-**FIDE section 9.2** — Koya score. Returns the total points scored by `playerId`
+**FIDE section 9.2** — Koya score. Returns the total points scored by `player`
 only in games played against opponents who achieved at least 50% of the maximum
 possible score in the tournament. Designed for round-robin (all-play-all)
 tournaments. Byes are excluded from both the threshold calculation and the score
@@ -48,7 +48,20 @@ round 2, etc. The `Game` type has no `round` field. The optional
 regardless of kind.
 
 ```typescript
-koya(playerId: string, games: Game[][], players?: Player[]): number
+koya(player: string, games: Game[][]): number
+```
+
+`tiebreak` is an alias for `koya` exported under a generic name for use in
+tiebreak pipelines.
+
+### Exports
+
+```typescript
+// Functions
+export { koya, tiebreak } from '@echecs/koya';
+
+// Types
+export type { Game, GameKind, Player, Result } from '@echecs/koya';
 ```
 
 ## Contributing

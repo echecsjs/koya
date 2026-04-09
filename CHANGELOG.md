@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.1 — 2026-04-09
+
+### Fixed
+
+- corrected `koya` signature (removed non-existent `players` parameter)
+- documented `tiebreak` export alias
+- documented `Result` and `Player` type exports
+
 ## 3.0.0 — 2026-03-25
 
 ### Changed
