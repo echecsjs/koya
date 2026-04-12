@@ -1,7 +1,7 @@
 # Koya
 
 [![npm](https://img.shields.io/npm/v/@echecs/koya)](https://www.npmjs.com/package/@echecs/koya)
-[![Coverage](https://codecov.io/gh/mormubis/koya/branch/main/graph/badge.svg)](https://codecov.io/gh/mormubis/koya)
+[![Coverage](https://codecov.io/gh/echecsjs/koya/branch/main/graph/badge.svg)](https://codecov.io/gh/echecsjs/koya)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Koya** is a TypeScript library implementing the Koya tiebreak system for
@@ -67,4 +67,4 @@ export type { Game, GameKind, Player, Result } from '@echecs/koya';
 ## Contributing
 
 Contributions are welcome. Please open an issue at
-[github.com/mormubis/koya/issues](https://github.com/mormubis/koya/issues).
+[github.com/echecsjs/koya/issues](https://github.com/echecsjs/koya/issues).
