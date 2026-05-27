@@ -1,12 +1,8 @@
 import { gamesForPlayer, opponents, scoreFor } from './utilities.js';
 
-import type { CompletedRound, Player } from '@echecs/tournament';
+import type { Tiebreak } from '@echecs/tournament';
 
-function koya(
-  player: string,
-  rounds: CompletedRound[],
-  players: Player[],
-): number {
+const koya: Tiebreak = (player, rounds, players) => {
   const threshold = rounds.length / 2;
   let sum = 0;
   for (const opp of opponents(player, rounds)) {
@@ -22,7 +18,7 @@ function koya(
     }
   }
   return sum;
-}
+};
 
 export { koya, koya as tiebreak };
 
