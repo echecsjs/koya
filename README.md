@@ -5,10 +5,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Spec](https://img.shields.io/badge/Spec-FIDE-green.svg)](SPEC.md)
 
-**Koya** is a TypeScript library implementing the Koya tiebreak system for
-round-robin chess tournaments, following the
-[FIDE Tiebreak Regulations](https://handbook.fide.com/chapter/TieBreakRegulations032026)
-(section 9.2). Zero runtime dependencies.
+**Koya** computes the Koya tiebreak — a
+[FIDE](https://handbook.fide.com/chapter/TieBreakRegulations032026)-defined
+method for breaking tied scores in round-robin (all-play-all) chess tournaments
+(section 9.2). TypeScript, zero runtime dependencies.
 
 ## Installation
 
@@ -39,21 +39,19 @@ const score = koya('A', games);
 
 ### `koya(player, games)`
 
-**FIDE section 9.2** — Koya score. Returns the total points scored by `player`
-only in games played against opponents who achieved at least 50% of the maximum
-possible score in the tournament. Designed for round-robin (all-play-all)
-tournaments. Byes are excluded from both the threshold calculation and the score
-sum. Round is determined by array position: `games[0]` = round 1, `games[1]` =
-round 2, etc. The `Game` type has no `round` field. The optional
-`kind?: GameKind` field on `Game` identifies unplayed rounds; byes are excluded
-regardless of kind.
+**FIDE section 9.2.** Returns the total points `player` scored against opponents
+who reached at least 50% of the tournament's maximum possible score. Round-robin
+format only.
+
+Byes (unplayed rounds) count toward neither the 50% threshold nor the score sum.
+Array position sets the round: `games[0]` = round 1, `games[1]` = round 2, etc.
+The optional `kind?: GameKind` field on `Game` classifies unplayed rounds.
 
 ```typescript
 koya(player: string, games: Game[][]): number
 ```
 
-`tiebreak` is an alias for `koya` exported under a generic name for use in
-tiebreak pipelines.
+`tiebreak` is an alias for `koya` for use in tiebreak pipelines.
 
 ### Exports
 
