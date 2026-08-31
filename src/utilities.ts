@@ -1,4 +1,4 @@
-import type { CompletedRound, Game } from '@echecs/tournament';
+import type { CompletedRound, Game, Player } from '@echecs/tournament';
 
 function gamesForPlayer(player: string, rounds: CompletedRound[]): Game[] {
   return rounds
@@ -25,4 +25,26 @@ function scoreFor(player: string, game: Game): number {
     : 0;
 }
 
-export { gamesForPlayer, opponents, scoreFor };
+function koyaScore(
+  player: string,
+  rounds: CompletedRound[],
+  players: Player[],
+  threshold: number,
+): number {
+  let sum = 0;
+  for (const opp of opponents(player, rounds)) {
+    const opponent = players.find((p) => p.id === opp);
+    if (opponent === undefined || opponent.points < threshold) {
+      continue;
+    }
+    const gamesBetween = gamesForPlayer(player, rounds).filter(
+      (g) => g.white === opp || g.black === opp,
+    );
+    for (const g of gamesBetween) {
+      sum += scoreFor(player, g);
+    }
+  }
+  return sum;
+}
+
+export { gamesForPlayer, koyaScore, opponents, scoreFor };

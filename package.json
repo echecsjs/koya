@@ -36,6 +36,14 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./limit-m1": {
+      "import": "./dist/limit-m1.js",
+      "types": "./dist/limit-m1.d.ts"
+    },
+    "./limit-m2": {
+      "import": "./dist/limit-m2.js",
+      "types": "./dist/limit-m2.d.ts"
     }
   },
   "files": [
