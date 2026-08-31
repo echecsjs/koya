@@ -53,6 +53,46 @@ koya(player: string, games: Game[][]): number
 
 `tiebreak` is an alias for `koya` for use in tiebreak pipelines.
 
+### `/limit-m1`
+
+**FIDE C.07 sections 9.2 + 14.5.** Koya with the threshold lowered to 50% − ½:
+opponents qualify when they scored strictly more than half the rounds minus one
+half point.
+
+```typescript
+import { koyaLimitM1, tiebreak } from '@echecs/koya/limit-m1';
+```
+
+### `/limit-m2`
+
+**FIDE C.07 sections 9.2 + 14.5.** Koya with the threshold lowered to 50% − 1:
+opponents qualify when they scored strictly more than half the rounds minus one
+point.
+
+```typescript
+import { koyaLimitM2, tiebreak } from '@echecs/koya/limit-m2';
+```
+
+### `/limit-p1`
+
+**FIDE C.07 sections 9.2 + 14.5.** Koya with the threshold raised to 50% + ½:
+opponents qualify when they scored strictly more than half the rounds plus one
+half point.
+
+```typescript
+import { koyaLimitP1, tiebreak } from '@echecs/koya/limit-p1';
+```
+
+### `/limit-p2`
+
+**FIDE C.07 sections 9.2 + 14.5.** Koya with the threshold raised to 50% + 1:
+opponents qualify when they scored strictly more than half the rounds plus one
+point.
+
+```typescript
+import { koyaLimitP2, tiebreak } from '@echecs/koya/limit-p2';
+```
+
 ### Exports
 
 ```typescript
@@ -62,6 +102,9 @@ export { koya, tiebreak } from '@echecs/koya';
 // Types
 export type { Game, GameKind, Player, Result } from '@echecs/koya';
 ```
+
+Each limit variant subpath exports its named function (e.g. `koyaLimitP1`), a
+`tiebreak` alias, and the same `Game`, `GameKind`, `Player`, and `Result` types.
 
 ## Contributing
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## [4.1.0] - 2026-08-30
+
+### Added
+
+- `@echecs/koya/limit-m1` — Koya with limit 50% − ½ (FIDE C.07 9.2 + 14.5)
+- `@echecs/koya/limit-m2` — Koya with limit 50% − 1 (FIDE C.07 9.2 + 14.5)
+- `@echecs/koya/limit-p1` — Koya with limit 50% + ½ (FIDE C.07 9.2 + 14.5)
+- `@echecs/koya/limit-p2` — Koya with limit 50% + 1 (FIDE C.07 9.2 + 14.5)
+
 ## [3.0.3] - 2026-04-26
 
 ### Fixed

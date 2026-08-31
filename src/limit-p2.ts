@@ -2,10 +2,10 @@ import { koyaScore } from './utilities.js';
 
 import type { Tiebreak } from '@echecs/tournament';
 
-const koya: Tiebreak = (player, rounds, players) =>
-  koyaScore(player, rounds, players, rounds.length / 2);
+const koyaLimitP2: Tiebreak = (player, rounds, players) =>
+  koyaScore(player, rounds, players, rounds.length / 2 + 1);
 
-export { koya, koya as tiebreak };
+export { koyaLimitP2, koyaLimitP2 as tiebreak };
 
 export type {
   Bye,
