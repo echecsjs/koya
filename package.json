@@ -44,6 +44,14 @@
     "./limit-m2": {
       "import": "./dist/limit-m2.js",
       "types": "./dist/limit-m2.d.ts"
+    },
+    "./limit-p1": {
+      "import": "./dist/limit-p1.js",
+      "types": "./dist/limit-p1.d.ts"
+    },
+    "./limit-p2": {
+      "import": "./dist/limit-p2.js",
+      "types": "./dist/limit-p2.d.ts"
     }
   },
   "files": [
