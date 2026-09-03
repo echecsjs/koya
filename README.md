@@ -20,7 +20,7 @@ npm install @echecs/koya
 
 ```typescript
 import { koya, tiebreak } from '@echecs/koya';
-import type { Game, GameKind, Player, Result } from '@echecs/koya';
+import type { Bye, CompletedRound, Game, Pairing, Player } from '@echecs/koya';
 
 // games[n] = round n+1; Game has no `round` field
 const games: Game[][] = [
@@ -45,7 +45,8 @@ format only.
 
 Byes (unplayed rounds) count toward neither the 50% threshold nor the score sum.
 Array position sets the round: `games[0]` = round 1, `games[1]` = round 2, etc.
-The optional `kind?: GameKind` field on `Game` classifies unplayed rounds.
+Unplayed rounds are classified by the `kind` field of the `Bye` type
+(`'full' | 'half' | 'pairing' | 'zero'`).
 
 ```typescript
 koya(player: string, games: Game[][]): number
@@ -56,8 +57,8 @@ koya(player: string, games: Game[][]): number
 ### `/limit-m1`
 
 **FIDE C.07 sections 9.2 + 14.5.** Koya with the threshold lowered to 50% − ½:
-opponents qualify when they scored strictly more than half the rounds minus one
-half point.
+opponents qualify when they scored at least half the rounds minus one half
+point.
 
 ```typescript
 import { koyaLimitM1, tiebreak } from '@echecs/koya/limit-m1';
@@ -66,8 +67,7 @@ import { koyaLimitM1, tiebreak } from '@echecs/koya/limit-m1';
 ### `/limit-m2`
 
 **FIDE C.07 sections 9.2 + 14.5.** Koya with the threshold lowered to 50% − 1:
-opponents qualify when they scored strictly more than half the rounds minus one
-point.
+opponents qualify when they scored at least half the rounds minus one point.
 
 ```typescript
 import { koyaLimitM2, tiebreak } from '@echecs/koya/limit-m2';
@@ -76,8 +76,7 @@ import { koyaLimitM2, tiebreak } from '@echecs/koya/limit-m2';
 ### `/limit-p1`
 
 **FIDE C.07 sections 9.2 + 14.5.** Koya with the threshold raised to 50% + ½:
-opponents qualify when they scored strictly more than half the rounds plus one
-half point.
+opponents qualify when they scored at least half the rounds plus one half point.
 
 ```typescript
 import { koyaLimitP1, tiebreak } from '@echecs/koya/limit-p1';
@@ -86,8 +85,7 @@ import { koyaLimitP1, tiebreak } from '@echecs/koya/limit-p1';
 ### `/limit-p2`
 
 **FIDE C.07 sections 9.2 + 14.5.** Koya with the threshold raised to 50% + 1:
-opponents qualify when they scored strictly more than half the rounds plus one
-point.
+opponents qualify when they scored at least half the rounds plus one point.
 
 ```typescript
 import { koyaLimitP2, tiebreak } from '@echecs/koya/limit-p2';
@@ -100,11 +98,12 @@ import { koyaLimitP2, tiebreak } from '@echecs/koya/limit-p2';
 export { koya, tiebreak } from '@echecs/koya';
 
 // Types
-export type { Game, GameKind, Player, Result } from '@echecs/koya';
+export type { Bye, CompletedRound, Game, Pairing, Player } from '@echecs/koya';
 ```
 
 Each limit variant subpath exports its named function (e.g. `koyaLimitP1`), a
-`tiebreak` alias, and the same `Game`, `GameKind`, `Player`, and `Result` types.
+`tiebreak` alias, and the same `Bye`, `CompletedRound`, `Game`, `Pairing`, and
+`Player` types.
 
 ## Contributing
 
