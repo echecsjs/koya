@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.1] - 2026-08-30
+
+### Fixed
+
+- README limit variants include opponents scoring exactly the limit (FIDE C.07
+  9.2 "at least") and corrected type export documentation.
+
 ## [4.1.0] - 2026-08-30
 
 ### Added
